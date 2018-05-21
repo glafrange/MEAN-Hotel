@@ -1,0 +1,29 @@
+{
+  "name": "mean-hotel",
+  "version": "1.0.0",
+  "description": "MEAN stack application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glafrange/MEAN-Hotel.git"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Gabriel Lafrange",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glafrange/MEAN-Hotel/issues"
+  },
+  "homepage": "https://github.com/glafrange/MEAN-Hotel#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
