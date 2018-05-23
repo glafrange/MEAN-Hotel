@@ -10,9 +10,17 @@ module.exports.reviewsGetAll = function(req, res) {
     .findById(hotelId)
     .select('reviews')
     .exec(function(err, doc) {
+      var response = {
+        status : 200,
+        message : doc
+      };
+      if (err) {
+        response.status = 500;
+        response.message = err;
+      }
       res
-      .status(200)
-      .json(doc.reviews);
+      .status(response.status)
+      .json(response.message);
     });
 };
 
@@ -26,10 +34,23 @@ module.exports.reviewsGetOne = function(req, res) {
     .findById(hotelId)
     .select("reviews")
     .exec(function(err, hotel) {
-      console.log("Returned hotel" + "hotel");
-      var review = hotel.reviews.id(reviewId)
+      var response = {
+        status : 200,
+        message : hotel
+      }
+      var review = hotel.reviews.id(reviewId);
+      if (err) {
+        response.status = 500;
+        response.message = err;
+      } else if (!review) {
+        response.status = 404;
+        response.message = {
+          "message" : "Review not found"
+        };
+      }
+      console.log("Returned review" + !review);
       res
       .status(200)
-      .json(review);
+      .json(response.message);
     });
 };
